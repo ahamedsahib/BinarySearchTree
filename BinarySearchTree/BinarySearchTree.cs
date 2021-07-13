@@ -17,7 +17,8 @@ namespace BinarySearchTree
         class BinarySearchTree<T> where T : IComparable
         {
             public BinaryTree<T> root;
-
+            int leftCount = 0;
+            int rightCount = 0;
             public void AddNode(T value)
             {
                 BinaryTree<T> newNode = new BinaryTree<T>(value);
@@ -34,13 +35,14 @@ namespace BinarySearchTree
                     
                     while (true)
                     {
-                        
-                        if (current.value.CompareTo(value) >= 0)
+                    parent = current;
+                    if (current.value.CompareTo(value) >= 0)
                         {
                             current = current.Left;
                             if (current == null)
                             {
                                 parent.Left = newNode;
+                                leftCount++;
                                 break;
                             }
                         }
@@ -51,14 +53,19 @@ namespace BinarySearchTree
                             if (current == null)
                             {
                                 parent.Right = newNode;
+                                rightCount++;
                                 break;
                             }
                         }
                     }
                 }
             }
+        public void GetSize()
+        {
+            Console.WriteLine($"Size of Tree = {this.leftCount + this.rightCount + 1}");
+        }
 
-            public void Display(BinaryTree<T> parent)
+        public void Display(BinaryTree<T> parent)
             {
                 if (parent != null)
                 {
