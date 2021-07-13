@@ -24,6 +24,8 @@ namespace BinarySearchTree
             bst.AddNode(16);
             bst.Display(bst.root);
             bst.GetSize();
+            string result = bst.SearchNode(bst.root, 11) ? "Node Present" : "Node not Present";
+            Console.WriteLine(result);
         }
     }
 }
