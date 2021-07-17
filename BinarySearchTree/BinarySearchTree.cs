@@ -37,7 +37,7 @@ namespace BinarySearchTree
                     while (true)
                     {
                     parent = current;
-                    if (current.value.CompareTo(value) < 0)
+                    if (current.value.CompareTo(value) >= 0)
                         {
                             current = current.Left;
                             if (current == null)
